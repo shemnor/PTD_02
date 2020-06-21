@@ -1,0 +1,10 @@
+C:\Users\SZCZ1360\source\repos\PTD_02\ObjDir\2017\PTD_02\PTD_02.csprojAssemblyReference.cache
+C:\Users\SZCZ1360\source\repos\PTD_02\ObjDir\2017\PTD_02\PTD_02.Form1.resources
+C:\Users\SZCZ1360\source\repos\PTD_02\ObjDir\2017\PTD_02\PTD_02.Properties.Resources.resources
+C:\Users\SZCZ1360\source\repos\PTD_02\ObjDir\2017\PTD_02\PTD_02.csproj.GenerateResource.cache
+C:\Users\SZCZ1360\source\repos\PTD_02\ObjDir\2017\PTD_02\PTD_02.csproj.CoreCompileInputs.cache
+C:\Users\SZCZ1360\source\repos\PTD_02\PTD_02\bin\Debug\PTD_02.exe.config
+C:\Users\SZCZ1360\source\repos\PTD_02\PTD_02\bin\Debug\PTD_02.exe
+C:\Users\SZCZ1360\source\repos\PTD_02\PTD_02\bin\Debug\PTD_02.pdb
+C:\Users\SZCZ1360\source\repos\PTD_02\ObjDir\2017\PTD_02\PTD_02.exe
+C:\Users\SZCZ1360\source\repos\PTD_02\ObjDir\2017\PTD_02\PTD_02.pdb
