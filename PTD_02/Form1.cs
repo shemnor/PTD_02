@@ -52,33 +52,33 @@ namespace PTD_02
 
         private void btn_Hidebars_Click(object sender, EventArgs e)
         {
-            changeDialog(txtb_Hidebars.Text, dialogType.bar);
+            changeDialog(PS.Default.usr_Hidebars, dialogType.bar);
         }
 
         private void btn_Showbars_Click(object sender, EventArgs e)
         {
-            changeDialog(txtb_Showbars.Text, dialogType.bar);
+            changeDialog(PS.Default.usr_Showbars, dialogType.bar);
         }
 
         private void btn_Outlinebars_Click(object sender, EventArgs e)
         {
-            changeDialog(txtb_Outlinebars.Text, dialogType.bar);
+            changeDialog(PS.Default.usr_Outlinebars, dialogType.bar);
         }
 
         private void btn_Hidecplr_Click(object sender, EventArgs e)
         {
-            changeDialog(txtb_Hidecplr.Text, dialogType.coupler);
+            changeDialog(PS.Default.usr_Hidepart, dialogType.coupler);
         }
 
         private void btn_Showcplr_Click(object sender, EventArgs e)
         {
-            changeDialog(txtb_Showcplr.Text, dialogType.coupler);
+            changeDialog(PS.Default.usr_Showpart, dialogType.coupler);
 
         }
 
         private void btn_Outlinecplr_Click(object sender, EventArgs e)
         {
-            changeDialog(txtb_Outlinecplr.Text, dialogType.coupler);
+            changeDialog(PS.Default.usr_Outlinepart, dialogType.coupler);
 
         }
 
@@ -175,21 +175,59 @@ namespace PTD_02
         private void btn_addCloud_Click(object sender, EventArgs e)
         {
             resetForm();
-            bool status = drawCloud();
-            if (!status) lbl_info.Text = "Action interrupted;";
+
+            var(points, view) = getRectangleCornersFromUser();
+
+            if (points != null)
+            {
+                TSDrg.PointList rectangle = calculateRectanlgeFromCorners(points);
+                drawCloud(rectangle,view, PS.Default.usr_Cloud);
+            }
+            else
+            {
+                lbl_info.Text = "Action interrupted;";
+            }
         }
 
         private void btn_addFcrNote_Click(object sender, EventArgs e)
         {
+            bool complete = false;
             resetForm();
-            bool status = addFCRNote();
-            if (!status) lbl_info.Text = "Action interrupted.";
+            ReinforcementBase usrReinforcement = getSingleObjectFromSelection<ReinforcementBase>() as ReinforcementBase;
+            if (usrReinforcement == null) usrReinforcement = getSingleObjectFromUser<ReinforcementBase>() as ReinforcementBase;
+
+            if (usrReinforcement != null)
+            {
+                var (usrPoint, usrView) = getPointFromUser();
+                if (usrPoint != null)
+                {
+                    addFCRNote(usrView, usrPoint, usrReinforcement);
+                    complete = true;
+                }
+            }
+            if (!complete) lbl_info.Text = "Action interrupted.";
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             resetForm();
-            alignMarks();
+            try
+            {
+                List<DrawingObject> usrObjects = getObjectsFromSelection(typeof(MarkBase));
+                List<MarkBase> usrBarMarks = new List<MarkBase>();
+                foreach (MarkBase mark in usrObjects)
+                {
+                    usrBarMarks.Add(mark);
+                }
+                MarkBase usrBaseMark = getSingleObjectFromUser<MarkBase>() as MarkBase;
+
+                alignMarks(usrBaseMark, usrBarMarks);
+            }
+            catch(NullReferenceException nullEx)
+            {
+                lbl_info.Text = "Action interrupted.";
+            }
+
         }
 
         /// <summary>*******************************************************************
@@ -285,70 +323,36 @@ namespace PTD_02
             return info;
         }
 
-        private bool drawCloud()
+        private void drawCloud(TSDrg.PointList pointList, ViewBase view, string attributesFile)
         {
-            bool complete = false;
-            Tuple<TSDrg.PointList, TSDrg.View> usrInp = getRectangleCornersFromUser();
-            if (usrInp.Item1 != null)
-            {
-                TSDrg.PointList rectangle = calculateRectanlgeFromCorners(usrInp.Item1);
-                TSDrg.Cloud cloud = new TSDrg.Cloud(usrInp.Item2, rectangle, new Cloud.CloudAttributes(PS.Default.usr_Cloud));
+                TSDrg.Cloud cloud = new TSDrg.Cloud(view, pointList, new Cloud.CloudAttributes(attributesFile));
                 cloud.Attributes.Line.Color = TSDrg.DrawingColors.Red;
                 cloud.Insert();
-                usrInp.Item2.GetDrawing().CommitChanges();
-                complete = true;
-            }
-            return complete;
+                view.GetDrawing().CommitChanges();
         }
 
-        private bool addFCRNote()
+        private void addFCRNote(ViewBase view, TSG.Point insertionPoint ,ReinforcementBase rebarObject)
         {
-            bool complete = false;
-            //ADD REBAR FCR NOTE
-            ReinforcementBase usrReinforcement = getSingleObjectFromSelection<ReinforcementBase>() as ReinforcementBase;
-            if (usrReinforcement == null) usrReinforcement = getSingleObjectFromUser<ReinforcementBase>() as ReinforcementBase;
-
-            if (usrReinforcement != null)
-            {
-                ViewBase userView = usrReinforcement.GetView();
-                Tuple<TSG.Point, TSDrg.View> userBasePoint = getPointFromUser();
-                string fcrNumber = getPhaseNameFromReinforcement(usrReinforcement);
-                fcrNumber = fcrNumber.Trim();
-                if (fcrNumber.LastIndexOf(" ") > 0)
-                    fcrNumber = fcrNumber.Substring(0, fcrNumber.LastIndexOf(" ", fcrNumber.Length));
-                TSDrg.Text fcrNote = new TSDrg.Text(userView, userBasePoint.Item1, fcrNumber, new TSDrg.Text.TextAttributes(PS.Default.usr_FcrNote));
-                fcrNote.Insert();
-                userView.GetDrawing().CommitChanges();
-                complete = true;
-            }
-            return complete;
+            string fcrNumber = getPhaseNameFromReinforcement(rebarObject);
+            fcrNumber = fcrNumber.Trim();
+            if (fcrNumber.LastIndexOf(" ") > 0)
+                fcrNumber = fcrNumber.Substring(0, fcrNumber.LastIndexOf(" ", fcrNumber.Length));
+            TSDrg.Text fcrNote = new TSDrg.Text(view, insertionPoint, fcrNumber, new TSDrg.Text.TextAttributes(PS.Default.usr_FcrNote));
+            fcrNote.Insert();
+            view.GetDrawing().CommitChanges();
         }
 
-        private void alignMarks()
+        private void alignMarks(MarkBase baseMark, List<MarkBase> barMarks)
         {
-            List<DrawingObject> usrObjects = getObjectsFromSelection(typeof(MarkBase));
-            if (usrObjects == null) return;
-            List<MarkBase> usrBarMarks = new List<MarkBase>();
-            foreach (MarkBase mark in usrObjects)
-            {
-                usrBarMarks.Add(mark);
-            }
-
-            MarkBase baseMark = getSingleObjectFromUser<MarkBase>() as MarkBase;
-            if (baseMark == null) return;
-
             TSG.Point basePoint = baseMark.InsertionPoint;
-            MarkBase[] sortedBarMarks = usrBarMarks.ToArray();
-            Double[] sortedBarMarkXpos = new Double[usrBarMarks.Count];
+            MarkBase[] sortedBarMarks = barMarks.ToArray();
+            Double[] sortedBarMarkXpos = new Double[barMarks.Count];
             bool reversed = false;
-
-            TSG.Point temp = new TSG.Point();
             //create array of barmark positions for sorting
-            for (int i = 0; i < usrBarMarks.Count; i++)
+            for (int i = 0; i < barMarks.Count; i++)
             {
-                TSDrg.LeaderLinePlacing placing = (LeaderLinePlacing)usrBarMarks[i].Placing;
-                drawcircle(placing.StartPoint, sortedBarMarks[i].GetView());
-                temp = placing.StartPoint;
+                TSDrg.LeaderLinePlacing placing = (LeaderLinePlacing)barMarks[i].Placing;
+                //drawcircle(placing.StartPoint, sortedBarMarks[i].GetView());
                 sortedBarMarkXpos[i] = placing.StartPoint.X;
             }
 
@@ -356,18 +360,18 @@ namespace PTD_02
             Array.Sort(sortedBarMarkXpos, sortedBarMarks);
             if (basePoint.X > sortedBarMarkXpos.Last())
             {
+                reversed = true;
                 sortedBarMarks.Reverse();
                 sortedBarMarkXpos.Reverse();
-                reversed = true;
             }
 
             //move barmarks
-            Double newInsertionYpos = basePoint.Y - PS.Default.usr_BarMarkYOffset;
             for (int i = 0; i < sortedBarMarks.Length; i++)
             {
-
+                Double newInsertionYpos = basePoint.Y - PS.Default.usr_BarMarkYOffset;
                 TSG.Point currBarMarkPosition = sortedBarMarks[i].InsertionPoint;
                 double newInsertionXpos = 0.0;
+
                 if (reversed == true)
                 {
                     newInsertionXpos = sortedBarMarkXpos[i] + 75 + sortedBarMarks[i].GetObjectAlignedBoundingBox().Width / 2;
@@ -384,8 +388,6 @@ namespace PTD_02
                     0.0);
                 sortedBarMarks[i].MoveObjectRelative(moveVector);
                 sortedBarMarks[i].Modify();
-                //newInsertionYpos += Double.Parse(PS.Default.usr_BarMarkYOffset);
-                newInsertionYpos -= PS.Default.usr_BarMarkYOffset;
             }
         }
 
@@ -588,6 +590,5 @@ namespace PTD_02
             MyPolygon.Attributes.Line.Color = Color;
             MyPolygon.Insert();
         }
-
     }
 }
