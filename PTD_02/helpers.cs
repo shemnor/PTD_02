@@ -83,6 +83,20 @@ namespace PTD_02
 
         }
 
+        public static Tuple<List<string>, List<string>> splitCsvFromString(string text, char delimeter)
+        {
+            var lines = text.Split(new[] { System.Environment.NewLine }, StringSplitOptions.None);
+            List<string> listA = new List<string>();
+            List<string> listB = new List<string>();
+            for (int i = 0; i < lines.Length-1; i++)
+            {
+                var values = lines[i].Split(delimeter);
+                listA.Add(values[0]);
+                listB.Add(values[1]);
+            }
+            return new Tuple<List<string>, List<string>>(listA, listB);
+        }
+
         /*
         public static void changeDialog(string attributeFileName, dialogType objectType)
         {

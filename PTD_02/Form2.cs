@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using PS = PTD_02.Properties.Settings;
 using System.IO;
 using System.Configuration;
+using Tekla.Structures.InpParser;
 
 namespace PTD_02
 {
@@ -30,8 +31,9 @@ namespace PTD_02
             helpers.readUserProperties(ref userSettingsTemp);
 
 
-            string csvPath = Path.GetDirectoryName(Application.ExecutablePath) + @"\userSettings.csv";
-            Tuple<List<string>, List<string>> descriptions = helpers.parse2valueCSV(csvPath);
+            //string csvPath = Path.GetDirectoryName(Application.ExecutablePath) + @"\userSettings.csv";
+            Tuple<List<string>, List<string>> descriptions = helpers.splitCsvFromString(Properties.Resources.userSettings,',');
+            //Tuple<List<string>, List<string>> descriptions = helpers.parse2valueCSV(csvPath);
             foreach (DataRow row in userSettingsTemp.Rows)
             {
                 row[2] = descriptions.Item2[descriptions.Item1.IndexOf(row[0].ToString())];

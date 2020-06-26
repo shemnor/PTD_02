@@ -1,0 +1,18 @@
+usr_Hidebars,preset name used for hidden bars
+usr_Hidepart,preset name used for hidden parts
+usr_Outlinebars,preset name used for grayed/outlined bars
+usr_Outlinepart,preset name used for grayed/outlined parts
+usr_Showbars,preset name used for visible bars
+usr_Showpart,preset name used for visible parts
+usr_BmLong,preset name used for the full length bar mark
+usr_BmLongCust,preset name used for the BM with custom bar quantity
+usr_BmSimple,preset name used for simple bar mark
+usr_Cloud,preset name used for drawing clouds
+usr_FcrNote,preset name used for the FCR note
+usr_FilterAdded,preset name used for objects with modification UDA value 'added'
+usr_FilterAddedBars,preset name used for bars with modification value 'added'
+usr_FilterAddedLinks,preset name used for links with modification UDA value = 'added'
+usr_FilterDeleted,preset name used for objects with modification UDA value 'deleted'
+usr_FilterDeletedBars,preset name used for bars with modification value = 'deleted'
+usr_FilterDeletedLinks,preset name used for links with modification UDA value = 'deleted'
+usr_BarMarkYOffset,value used for Y axis offset when arranging BarMarks
