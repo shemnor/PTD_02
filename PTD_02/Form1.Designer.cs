@@ -60,7 +60,7 @@
             this.btn_addCloud = new System.Windows.Forms.Button();
             this.btn_addFcrNote = new System.Windows.Forms.Button();
             this.btn_settings = new System.Windows.Forms.Button();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.cbx_outlineBars = new System.Windows.Forms.CheckBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
@@ -68,7 +68,7 @@
             this.label14 = new System.Windows.Forms.Label();
             this.checkBox4 = new System.Windows.Forms.CheckBox();
             this.label15 = new System.Windows.Forms.Label();
-            this.checkBox5 = new System.Windows.Forms.CheckBox();
+            this.cbx_outlinePart = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // btn_Hidebars
@@ -372,14 +372,14 @@
             this.btn_settings.UseVisualStyleBackColor = true;
             this.btn_settings.Click += new System.EventHandler(this.btn_settings_Click);
             // 
-            // checkBox1
+            // cbx_outlineBars
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(163, 41);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(15, 14);
-            this.checkBox1.TabIndex = 43;
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.cbx_outlineBars.AutoSize = true;
+            this.cbx_outlineBars.Location = new System.Drawing.Point(163, 41);
+            this.cbx_outlineBars.Name = "cbx_outlineBars";
+            this.cbx_outlineBars.Size = new System.Drawing.Size(15, 14);
+            this.cbx_outlineBars.TabIndex = 43;
+            this.cbx_outlineBars.UseVisualStyleBackColor = true;
             // 
             // label12
             // 
@@ -444,21 +444,21 @@
             this.label15.TabIndex = 49;
             this.label15.Text = "P";
             // 
-            // checkBox5
+            // cbx_outlinePart
             // 
-            this.checkBox5.AutoSize = true;
-            this.checkBox5.Location = new System.Drawing.Point(163, 97);
-            this.checkBox5.Name = "checkBox5";
-            this.checkBox5.Size = new System.Drawing.Size(15, 14);
-            this.checkBox5.TabIndex = 51;
-            this.checkBox5.UseVisualStyleBackColor = true;
+            this.cbx_outlinePart.AutoSize = true;
+            this.cbx_outlinePart.Location = new System.Drawing.Point(163, 97);
+            this.cbx_outlinePart.Name = "cbx_outlinePart";
+            this.cbx_outlinePart.Size = new System.Drawing.Size(15, 14);
+            this.cbx_outlinePart.TabIndex = 51;
+            this.cbx_outlinePart.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(262, 483);
-            this.Controls.Add(this.checkBox5);
+            this.Controls.Add(this.cbx_outlinePart);
             this.Controls.Add(this.checkBox4);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.checkBox3);
@@ -466,7 +466,7 @@
             this.Controls.Add(this.checkBox2);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label12);
-            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.cbx_outlineBars);
             this.Controls.Add(this.btn_settings);
             this.Controls.Add(this.btn_addFcrNote);
             this.Controls.Add(this.btn_addCloud);
@@ -545,7 +545,7 @@
         private System.Windows.Forms.Button btn_addCloud;
         private System.Windows.Forms.Button btn_addFcrNote;
         private System.Windows.Forms.Button btn_settings;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox cbx_outlineBars;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.CheckBox checkBox2;
@@ -553,7 +553,7 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.CheckBox checkBox4;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.CheckBox checkBox5;
+        private System.Windows.Forms.CheckBox cbx_outlinePart;
     }
 }
 

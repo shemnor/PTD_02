@@ -52,7 +52,14 @@ namespace PTD_02
 
         private void btn_Hidebars_Click(object sender, EventArgs e)
         {
-            changeDialog(PS.Default.usr_Hidebars, dialogType.bar);
+            if (!cbx_outlineBars.Checked)
+            {
+                changeDialog(PS.Default.usr_Hidebars, dialogType.bar);
+            }
+            else
+            {
+                changeDialog(PS.Default.usr_Outlinebars, dialogType.bar);
+            }
         }
 
         private void btn_Showbars_Click(object sender, EventArgs e)
@@ -60,25 +67,21 @@ namespace PTD_02
             changeDialog(PS.Default.usr_Showbars, dialogType.bar);
         }
 
-        private void btn_Outlinebars_Click(object sender, EventArgs e)
-        {
-            changeDialog(PS.Default.usr_Outlinebars, dialogType.bar);
-        }
-
         private void btn_Hidecplr_Click(object sender, EventArgs e)
         {
-            changeDialog(PS.Default.usr_Hidepart, dialogType.coupler);
+            if (!cbx_outlinePart.Checked)
+            {
+                changeDialog(PS.Default.usr_Hidepart, dialogType.coupler);
+            }
+            else
+            {
+                changeDialog(PS.Default.usr_Outlinepart, dialogType.coupler);
+            }
         }
 
         private void btn_Showcplr_Click(object sender, EventArgs e)
         {
             changeDialog(PS.Default.usr_Showpart, dialogType.coupler);
-
-        }
-
-        private void btn_Outlinecplr_Click(object sender, EventArgs e)
-        {
-            changeDialog(PS.Default.usr_Outlinepart, dialogType.coupler);
 
         }
 
