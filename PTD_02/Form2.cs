@@ -32,10 +32,9 @@ namespace PTD_02
             userSettingsTemp.Columns.Add("description");
             helpers.readUserProperties(ref userSettingsTemp);
 
-
-            //string csvPath = Path.GetDirectoryName(Application.ExecutablePath) + @"\userSettings.csv";
-            Tuple<List<string>, List<string>> descriptions = helpers.splitCsvFromString(Properties.Resources.userSettings,',');
-            //Tuple<List<string>, List<string>> descriptions = helpers.parse2valueCSV(csvPath);
+            //parse UserSettings into Tuple
+            Tuple<List<string>, List<string>> descriptions = helpers.splitCsvFromString(Properties.Resources.userSettingsDescriptions,',');
+            
             foreach (DataRow row in userSettingsTemp.Rows)
             {
                 row[2] = descriptions.Item2[descriptions.Item1.IndexOf(row[0].ToString())];

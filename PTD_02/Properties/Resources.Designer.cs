@@ -72,9 +72,9 @@ namespace PTD_02.Properties {
         ///usr_BmSimple,preset name used for simple bar mark
         ///usr_Cloud,preset name u [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string userSettings {
+        internal static string userSettingsDescriptions {
             get {
-                return ResourceManager.GetString("userSettings", resourceCulture);
+                return ResourceManager.GetString("userSettingsDescriptions", resourceCulture);
             }
         }
     }
