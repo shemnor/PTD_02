@@ -182,7 +182,7 @@
             this.btn_Standard.Name = "btn_Standard";
             this.btn_Standard.Size = new System.Drawing.Size(235, 20);
             this.btn_Standard.TabIndex = 20;
-            this.btn_Standard.Text = "Standard";
+            this.btn_Standard.Text = "Standard Filter";
             this.btn_Standard.UseVisualStyleBackColor = true;
             this.btn_Standard.Click += new System.EventHandler(this.btn_Standard_Click);
             // 

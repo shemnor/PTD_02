@@ -43,12 +43,13 @@
             this.dgv_userSettings.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_userSettings.Location = new System.Drawing.Point(12, 12);
             this.dgv_userSettings.Name = "dgv_userSettings";
-            this.dgv_userSettings.Size = new System.Drawing.Size(579, 313);
+            this.dgv_userSettings.Size = new System.Drawing.Size(579, 332);
             this.dgv_userSettings.TabIndex = 0;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(12, 331);
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.button1.Location = new System.Drawing.Point(12, 350);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(126, 23);
             this.button1.TabIndex = 1;
@@ -59,7 +60,7 @@
             // lbl_status
             // 
             this.lbl_status.AutoSize = true;
-            this.lbl_status.Location = new System.Drawing.Point(161, 336);
+            this.lbl_status.Location = new System.Drawing.Point(144, 355);
             this.lbl_status.Name = "lbl_status";
             this.lbl_status.Size = new System.Drawing.Size(0, 13);
             this.lbl_status.TabIndex = 2;
@@ -68,7 +69,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(603, 379);
+            this.ClientSize = new System.Drawing.Size(603, 385);
             this.Controls.Add(this.lbl_status);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dgv_userSettings);

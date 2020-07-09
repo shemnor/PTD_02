@@ -12,6 +12,7 @@ using PS = PTD_02.Properties.Settings;
 using System.IO;
 using System.Configuration;
 using Tekla.Structures.InpParser;
+using PTD_02.Properties;
 
 namespace PTD_02
 {
@@ -24,6 +25,7 @@ namespace PTD_02
         public Form2()
         {
             InitializeComponent();
+
             userSettingsTemp = new DataTable();
             userSettingsTemp.Columns.Add("field");
             userSettingsTemp.Columns.Add("value");
@@ -40,14 +42,24 @@ namespace PTD_02
             }
 
             dgv_userSettings.DataSource = userSettingsTemp;
+
+            userSettingsTemp.ColumnChanged += new DataColumnChangeEventHandler(Column_Changed);
         }
-        
+
+
+        private void Column_Changed(object sender, DataColumnChangeEventArgs e)
+        {
+            settingsSaved = false;
+            settingsChanged = true;
+        }
+
         private void Form2_FormClosing(object sender, FormClosingEventArgs e)
         {
             //check if not saved
-            if (settingsSaved == false)
+            if (!settingsSaved)
             {
                 //check if anythig changed
+                /*
                 foreach (DataRow row in userSettingsTemp.Rows)
                 {
                     if (PS.Default[row[0].ToString()].ToString() != row[1].ToString())
@@ -56,6 +68,8 @@ namespace PTD_02
                         break;
                     }
                 }
+                */
+
                 //if changed then ask if discard
                 if (settingsChanged)
                 {
@@ -77,7 +91,9 @@ namespace PTD_02
         {
             helpers.applyUserProperties(userSettingsTemp);
             PS.Default.Save();
+            settingsSaved = true;
             lbl_status.Text = "Saved!";
         }
+
     }
 }
