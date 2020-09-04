@@ -25,7 +25,7 @@ namespace PTD_02.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("PTD_hidden")]
         public string usr_Hidebars {
             get {
                 return ((string)(this["usr_Hidebars"]));
@@ -37,7 +37,7 @@ namespace PTD_02.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("PTD_outlines")]
         public string usr_Outlinebars {
             get {
                 return ((string)(this["usr_Outlinebars"]));
@@ -49,7 +49,7 @@ namespace PTD_02.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("PDT_COUPLER_OUTLINE")]
         public string usr_Outlinepart {
             get {
                 return ((string)(this["usr_Outlinepart"]));
@@ -61,7 +61,7 @@ namespace PTD_02.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("ggggg")]
+        [global::System.Configuration.DefaultSettingValueAttribute("PDT_COUPLER_HIDDEN")]
         public string usr_Hidepart {
             get {
                 return ((string)(this["usr_Hidepart"]));
@@ -73,7 +73,7 @@ namespace PTD_02.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("PTD_Standard")]
         public string usr_Showbars {
             get {
                 return ((string)(this["usr_Showbars"]));
@@ -85,7 +85,7 @@ namespace PTD_02.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("PDT_COUPLER_VISIBLE")]
         public string usr_Showpart {
             get {
                 return ((string)(this["usr_Showpart"]));
@@ -97,7 +97,7 @@ namespace PTD_02.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("ICOS_NOSPACING")]
         public string usr_BmLong {
             get {
                 return ((string)(this["usr_BmLong"]));
@@ -109,7 +109,7 @@ namespace PTD_02.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("ICOS_NOSPACINGNUM")]
         public string usr_BmLongCust {
             get {
                 return ((string)(this["usr_BmLongCust"]));
@@ -121,7 +121,7 @@ namespace PTD_02.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("ICOS_SIMPLESERIAL")]
         public string usr_BmSimple {
             get {
                 return ((string)(this["usr_BmSimple"]));
@@ -133,7 +133,7 @@ namespace PTD_02.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("ATK_CLOUD")]
         public string usr_Cloud {
             get {
                 return ((string)(this["usr_Cloud"]));
@@ -145,7 +145,7 @@ namespace PTD_02.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("FCR note")]
         public string usr_FcrNote {
             get {
                 return ((string)(this["usr_FcrNote"]));
@@ -157,7 +157,7 @@ namespace PTD_02.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("PTD_Added")]
         public string usr_FilterAdded {
             get {
                 return ((string)(this["usr_FilterAdded"]));
@@ -169,7 +169,7 @@ namespace PTD_02.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("PTD_ADDED BARS")]
         public string usr_FilterAddedBars {
             get {
                 return ((string)(this["usr_FilterAddedBars"]));
@@ -181,7 +181,7 @@ namespace PTD_02.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("PTD_ADDED LINKS")]
         public string usr_FilterAddedLinks {
             get {
                 return ((string)(this["usr_FilterAddedLinks"]));
@@ -193,7 +193,7 @@ namespace PTD_02.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("PTD_DELETED")]
         public string usr_FilterDeleted {
             get {
                 return ((string)(this["usr_FilterDeleted"]));
@@ -205,7 +205,7 @@ namespace PTD_02.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("PTD_DELETED BARS")]
         public string usr_FilterDeletedBars {
             get {
                 return ((string)(this["usr_FilterDeletedBars"]));
@@ -217,7 +217,7 @@ namespace PTD_02.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("PTD_DELETED LINKS")]
         public string usr_FilterDeletedLinks {
             get {
                 return ((string)(this["usr_FilterDeletedLinks"]));

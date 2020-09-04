@@ -15,4 +15,3 @@ usr_FilterAddedLinks,preset name used for links with modification UDA value = 'a
 usr_FilterDeleted,preset name used for objects with modification UDA value 'deleted'
 usr_FilterDeletedBars,preset name used for bars with modification value = 'deleted'
 usr_FilterDeletedLinks,preset name used for links with modification UDA value = 'deleted'
-usr_BarMarkYOffset,value used for Y axis offset when arranging BarMarks

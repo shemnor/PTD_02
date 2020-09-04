@@ -211,7 +211,7 @@ namespace PTD_02
             if (!complete) lbl_info.Text = "Action interrupted.";
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button404_Click(object sender, EventArgs e)
         {
             resetForm();
             try
@@ -225,6 +225,8 @@ namespace PTD_02
                 MarkBase usrBaseMark = getSingleObjectFromUser<MarkBase>() as MarkBase;
 
                 alignMarks(usrBaseMark, usrBarMarks);
+                
+                
             }
             catch(NullReferenceException nullEx)
             {
@@ -232,6 +234,51 @@ namespace PTD_02
             }
 
         }
+
+        private void btn_alignSeries_Click(object sender, EventArgs e)
+        {
+            resetForm();
+            try
+            {
+                List<DrawingObject> usrObjects = getObjectsFromSelection(typeof(MarkBase));
+                List<MarkBase> usrBarMarks = new List<MarkBase>();
+                foreach (MarkBase mark in usrObjects)
+                {
+                    usrBarMarks.Add(mark);
+                }
+                MarkBase usrBaseMark = getSingleObjectFromUser<MarkBase>() as MarkBase;
+
+                alignMarks(usrBaseMark, usrBarMarks);
+
+
+            }
+            catch (NullReferenceException nullEx)
+            {
+                lbl_info.Text = "Action interrupted.";
+            }
+        }
+
+        private void btn_alignHorz_Click(object sender, EventArgs e)
+        {
+            resetForm();
+            try
+            {
+                List<DrawingObject> usrObjects = getObjectsFromSelection(typeof(MarkBase));
+                List<MarkBase> usrBarMarks = new List<MarkBase>();
+                foreach (MarkBase mark in usrObjects)
+                {
+                    usrBarMarks.Add(mark);
+                }
+
+                alignMarksHorizontal(usrBarMarks);
+                usrBarMarks[0].GetView().GetDrawing().CommitChanges();
+            }
+            catch (NullReferenceException nullEx)
+            {
+                lbl_info.Text = "Action interrupted.";
+            }
+        }
+
 
         /// <summary>*******************************************************************
         /// 
@@ -351,10 +398,11 @@ namespace PTD_02
             MarkBase[] sortedBarMarks = barMarks.ToArray();
             Double[] sortedBarMarkXpos = new Double[barMarks.Count];
             bool reversed = false;
+
             //create array of barmark positions for sorting
-            for (int i = 0; i < barMarks.Count; i++)
+            for (int i = 0; i < sortedBarMarks.Length; i++)
             {
-                TSDrg.LeaderLinePlacing placing = (LeaderLinePlacing)barMarks[i].Placing;
+                TSDrg.LeaderLinePlacing placing = (LeaderLinePlacing)sortedBarMarks[i].Placing;
                 //drawcircle(placing.StartPoint, sortedBarMarks[i].GetView());
                 sortedBarMarkXpos[i] = placing.StartPoint.X;
             }
@@ -364,14 +412,16 @@ namespace PTD_02
             if (basePoint.X > sortedBarMarkXpos.Last())
             {
                 reversed = true;
-                sortedBarMarks.Reverse();
-                sortedBarMarkXpos.Reverse();
+                Array.Reverse(sortedBarMarks);
+                Array.Reverse(sortedBarMarkXpos);
             }
+
+            Double newInsertionYpos = basePoint.Y - PS.Default.usr_BarMarkYOffset;
 
             //move barmarks
             for (int i = 0; i < sortedBarMarks.Length; i++)
             {
-                Double newInsertionYpos = basePoint.Y - PS.Default.usr_BarMarkYOffset;
+                
                 TSG.Point currBarMarkPosition = sortedBarMarks[i].InsertionPoint;
                 double newInsertionXpos = 0.0;
 
@@ -391,8 +441,32 @@ namespace PTD_02
                     0.0);
                 sortedBarMarks[i].MoveObjectRelative(moveVector);
                 sortedBarMarks[i].Modify();
+
+                newInsertionYpos -= PS.Default.usr_BarMarkYOffset;
             }
         }
+
+        private void alignMarksHorizontal(List<MarkBase> barMarks)
+        {
+            MarkBase[] sortedBarMarks = barMarks.ToArray();
+
+            for (int i = 0; i < sortedBarMarks.Length; i++)
+            {
+                TSDrg.LeaderLinePlacing placing = (LeaderLinePlacing)sortedBarMarks[i].Placing;
+                double newInsertionXpos = sortedBarMarks[i].InsertionPoint.X;
+                double newInsertionYpos = placing.StartPoint.Y + sortedBarMarks[i].GetObjectAlignedBoundingBox().Height/2;
+                TSG.Point currBarMarkPosition = sortedBarMarks[i].InsertionPoint;
+
+                TSG.Point newInsertionPoint = new TSG.Point(newInsertionXpos, newInsertionYpos);
+                TSG.Vector moveVector = new TSG.Vector(
+                    newInsertionPoint.X - currBarMarkPosition.X,
+                    newInsertionPoint.Y - currBarMarkPosition.Y,
+                    0.0);
+                sortedBarMarks[i].MoveObjectRelative(moveVector);
+                sortedBarMarks[i].Modify();
+            }
+        }
+
 
         private TSDrg.PointList calculateRectanlgeFromCorners(TSDrg.PointList cornerList)
         {
@@ -593,5 +667,7 @@ namespace PTD_02
             MyPolygon.Attributes.Line.Color = Color;
             MyPolygon.Insert();
         }
+
+        
     }
 }

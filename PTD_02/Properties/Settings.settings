@@ -3,55 +3,55 @@
   <Profiles />
   <Settings>
     <Setting Name="usr_Hidebars" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">PTD_hidden</Value>
     </Setting>
     <Setting Name="usr_Outlinebars" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">PTD_outlines</Value>
     </Setting>
     <Setting Name="usr_Outlinepart" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">PDT_COUPLER_OUTLINE</Value>
     </Setting>
     <Setting Name="usr_Hidepart" Type="System.String" Scope="User">
-      <Value Profile="(Default)">ggggg</Value>
+      <Value Profile="(Default)">PDT_COUPLER_HIDDEN</Value>
     </Setting>
     <Setting Name="usr_Showbars" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">PTD_Standard</Value>
     </Setting>
     <Setting Name="usr_Showpart" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">PDT_COUPLER_VISIBLE</Value>
     </Setting>
     <Setting Name="usr_BmLong" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">ICOS_NOSPACING</Value>
     </Setting>
     <Setting Name="usr_BmLongCust" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">ICOS_NOSPACINGNUM</Value>
     </Setting>
     <Setting Name="usr_BmSimple" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">ICOS_SIMPLESERIAL</Value>
     </Setting>
     <Setting Name="usr_Cloud" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">ATK_CLOUD</Value>
     </Setting>
     <Setting Name="usr_FcrNote" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">FCR note</Value>
     </Setting>
     <Setting Name="usr_FilterAdded" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">PTD_Added</Value>
     </Setting>
     <Setting Name="usr_FilterAddedBars" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">PTD_ADDED BARS</Value>
     </Setting>
     <Setting Name="usr_FilterAddedLinks" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">PTD_ADDED LINKS</Value>
     </Setting>
     <Setting Name="usr_FilterDeleted" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">PTD_DELETED</Value>
     </Setting>
     <Setting Name="usr_FilterDeletedBars" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">PTD_DELETED BARS</Value>
     </Setting>
     <Setting Name="usr_FilterDeletedLinks" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">PTD_DELETED LINKS</Value>
     </Setting>
     <Setting Name="usr_BarMarkYOffset" Type="System.Double" Scope="User">
       <Value Profile="(Default)">100</Value>

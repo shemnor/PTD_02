@@ -69,6 +69,8 @@
             this.checkBox4 = new System.Windows.Forms.CheckBox();
             this.label15 = new System.Windows.Forms.Label();
             this.cbx_outlinePart = new System.Windows.Forms.CheckBox();
+            this.btn_alignHorz = new System.Windows.Forms.Button();
+            this.btn_alignSeries = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btn_Hidebars
@@ -453,11 +455,33 @@
             this.cbx_outlinePart.TabIndex = 51;
             this.cbx_outlinePart.UseVisualStyleBackColor = true;
             // 
+            // btn_alignHorz
+            // 
+            this.btn_alignHorz.Location = new System.Drawing.Point(26, 477);
+            this.btn_alignHorz.Name = "btn_alignHorz";
+            this.btn_alignHorz.Size = new System.Drawing.Size(75, 23);
+            this.btn_alignHorz.TabIndex = 52;
+            this.btn_alignHorz.Text = "Align Horz";
+            this.btn_alignHorz.UseVisualStyleBackColor = true;
+            this.btn_alignHorz.Click += new System.EventHandler(this.btn_alignHorz_Click);
+            // 
+            // btn_alignSeries
+            // 
+            this.btn_alignSeries.Location = new System.Drawing.Point(156, 477);
+            this.btn_alignSeries.Name = "btn_alignSeries";
+            this.btn_alignSeries.Size = new System.Drawing.Size(75, 23);
+            this.btn_alignSeries.TabIndex = 53;
+            this.btn_alignSeries.Text = "Align series";
+            this.btn_alignSeries.UseVisualStyleBackColor = true;
+            this.btn_alignSeries.Click += new System.EventHandler(this.btn_alignSeries_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(262, 483);
+            this.ClientSize = new System.Drawing.Size(262, 507);
+            this.Controls.Add(this.btn_alignSeries);
+            this.Controls.Add(this.btn_alignHorz);
             this.Controls.Add(this.cbx_outlinePart);
             this.Controls.Add(this.checkBox4);
             this.Controls.Add(this.label15);
@@ -554,6 +578,8 @@
         private System.Windows.Forms.CheckBox checkBox4;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.CheckBox cbx_outlinePart;
+        private System.Windows.Forms.Button btn_alignHorz;
+        private System.Windows.Forms.Button btn_alignSeries;
     }
 }
 
