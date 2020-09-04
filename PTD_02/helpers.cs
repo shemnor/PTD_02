@@ -83,18 +83,16 @@ namespace PTD_02
 
         }
 
-        public static Tuple<List<string>, List<string>> splitCsvFromString(string text, char delimeter)
+        public static Dictionary<string, string> splitCSVLinePairsFromString(string text, char delimeter)
         {
+            Dictionary<string, string> keyValues = new Dictionary<string, string>();
             var lines = text.Split(new[] { System.Environment.NewLine }, StringSplitOptions.None);
-            List<string> listA = new List<string>();
-            List<string> listB = new List<string>();
-            for (int i = 0; i < lines.Length-1; i++)
+            for (int i = 0; i < lines.Length - 1; i++)
             {
                 var values = lines[i].Split(delimeter);
-                listA.Add(values[0]);
-                listB.Add(values[1]);
+                keyValues.Add(values[0], values[1]);
             }
-            return new Tuple<List<string>, List<string>>(listA, listB);
+            return keyValues;
         }
 
         /*

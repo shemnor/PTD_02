@@ -46,7 +46,7 @@ namespace PTD_02
 
         private void btn_settings_Click(object sender, EventArgs e)
         {
-            Form form2 = new Form2();
+            Form form2 = new UserSettings();
             form2.Show();
         }
 
